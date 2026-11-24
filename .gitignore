@@ -1,0 +1,11 @@
+node_modules
+.next
+.vercel
+*.tsbuildinfo
+.env*
+
+# Archivos de trabajo pesados (no los usa la web)
+brochure/
+brand/ambientes-originales/
+brand/aurium-propuestas/
+brand/aurium-logo-master.png

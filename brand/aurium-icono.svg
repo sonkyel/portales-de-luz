@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 792 721" fill="#8b1a20">
+  <title>Aurium Inmobiliaria</title>
+  <defs>
+    <clipPath id="interior">
+      <path d="M396 178 L670 721 L122 721 Z"/>
+    </clipPath>
+  </defs>
+  <!-- A -->
+  <path fill-rule="evenodd" d="M396 0 L790 721 L2 721 Z M396 178 L670 721 L122 721 Z"/>
+  <!-- techo -->
+  <path clip-path="url(#interior)" d="M396 389 L792 633 L792 686 L396 442 L0 686 L0 633 Z"/>
+  <!-- puerta en arco -->
+  <path d="M327 721 V610 A69 69 0 0 1 465 610 V721 Z"/>
+</svg>

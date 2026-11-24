@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* ===========================================================
+   PORTALES DE LUZ — Sistema de diseño
+   Paleta tomada del brochure: granate profundo, arena/sillar
+   y crema cálido. Serif clásico para la marca, sans geométrica
+   para datos (como en el brochure).
+   =========================================================== */
+
+@theme {
+  --color-granate-950: #3d0a0d;
+  --color-granate-900: #5c1015;
+  --color-granate:     #8b1a20;
+  --color-granate-600: #a3242a;
+  --color-arena:       #c9a27e;
+  --color-arena-300:   #e2c9ae;
+  --color-crema:       #f7f1e8;
+  --color-crema-200:   #efe5d6;
+  --color-sillar:      #e9e4dc;
+  --color-tinta:       #241a17;
+  --color-tinta-soft:  #6b5d57;
+
+  --color-st-libre:    #ffffff;
+  --color-st-separado: #f2c230;
+  --color-st-vendido:  #d8363a;
+  --color-st-duplex:   #9cc7ee;
+
+  --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-body:    var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 2px 4px rgb(61 10 13 / 0.05), 0 24px 48px -24px rgb(61 10 13 / 0.28);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-crema);
+  color: var(--color-tinta);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Cormorant usa números de estilo antiguo por defecto; en cifras y precios queremos alineados */
+[class*="font-display"] {
+  font-variant-numeric: lining-nums;
+}
+
+::selection {
+  background: var(--color-granate);
+  color: var(--color-crema);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* Arco de medio punto, motivo central de la fachada */
+.arch {
+  border-radius: 999px 999px 0 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: reveal 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .reveal-2 { animation-delay: 0.12s; }
+  .reveal-3 { animation-delay: 0.24s; }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
