@@ -10,7 +10,7 @@ export const site = {
   fullName: "Condominio Portales de Luz",
   district: "Yanahuara",
   city: "Arequipa",
-  url: "https://portalesdeluz.pe", // TODO: reemplazar por el dominio real
+  url: "https://portales-de-luz.vercel.app", // TODO: cambiar si se compra un dominio propio
   tagline: "Vive Yanahuara, vive en una zona elegante y segura de Arequipa.",
   address: "Calle Quesada con Calle Arica, Yanahuara, Arequipa",
   empresa: "Aurium Inmobiliaria",

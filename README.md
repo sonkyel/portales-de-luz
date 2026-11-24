@@ -22,7 +22,7 @@ Todo el contenido (precios, disponibilidad, tipologías, WhatsApp) está en **`d
 
 ## Pendientes
 
-- [ ] Dominio real en `site.url` (`data/site.ts`).
+- [ ] Dominio propio (hoy: https://portales-de-luz.vercel.app, en `site.url` de `data/site.ts`).
 - [x] Inmobiliaria: Aurium Inmobiliaria (logo en `brand/`, componente `components/AuriumLogo.tsx`).
 - [ ] Área y precio de los dúplex (el brochure no los indica).
 - [ ] Revisar la tabla de disponibilidad del brochure: `D101` aparece en piso 1 y piso 2, y la tabla de precios dice "Torre A vendida" aunque A103 figura como libre y A104 separado.
