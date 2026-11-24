@@ -31,7 +31,7 @@ export default function Navbar() {
         scrolled || open ? "bg-crema/95 shadow-[0_1px_0_rgb(61_10_13/0.08)] backdrop-blur" : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <a href="#inicio" aria-label="Portales de Luz, inicio" onClick={() => setOpen(false)}>
           <Logo />
         </a>

@@ -32,7 +32,7 @@ export default function Tipologias() {
 
   return (
     <div>
-      <div role="tablist" aria-label="Tipos de departamento" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0">
+      <div role="tablist" aria-label="Tipos de departamento" className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center lg:justify-start">
         {tipologias.map((x) => {
           const sel = x.id === activo;
           return (
@@ -45,7 +45,7 @@ export default function Tipologias() {
                 setActivo(x.id);
                 setFoto(0);
               }}
-              className={`shrink-0 rounded-full border px-5 py-2.5 text-sm font-semibold transition ${
+              className={`rounded-full border px-4 py-3 text-sm font-semibold transition sm:px-5 sm:py-2.5 ${
                 sel
                   ? "border-granate bg-granate text-crema"
                   : "border-granate/20 bg-white/60 text-granate hover:border-granate/50"
@@ -64,9 +64,9 @@ export default function Tipologias() {
         key={t.id}
         className="reveal mt-8 grid overflow-hidden rounded-[2rem] bg-white shadow-[var(--shadow-card)] lg:grid-cols-[0.85fr_1.15fr]"
       >
-        <div className="relative bg-granate p-7 text-crema sm:p-10">
+        <div className="relative bg-granate px-6 py-9 text-center text-crema sm:p-10 lg:text-left">
           <p className="eyebrow text-arena-300">{t.torres}</p>
-          <div className="mt-4 flex items-end gap-3">
+          <div className="mt-4 flex items-end justify-center gap-3 lg:justify-start">
             {t.area ? (
               <>
                 <span className="font-[family-name:var(--font-display)] text-7xl font-semibold leading-none sm:text-8xl">
@@ -82,7 +82,7 @@ export default function Tipologias() {
           </div>
 
           {t.ambientes.length > 0 && (
-            <ul className="mt-9 grid grid-cols-2 gap-x-4 gap-y-5">
+            <ul className="mx-auto mt-9 grid max-w-sm grid-cols-2 gap-x-4 gap-y-5 text-left lg:mx-0">
               {t.ambientes.map((a) => {
                 const Icon = icons[a.icon];
                 return (
@@ -100,7 +100,7 @@ export default function Tipologias() {
             </ul>
           )}
 
-          {t.nota && <p className="mt-8 max-w-sm leading-relaxed text-crema/85">{t.nota}</p>}
+          {t.nota && <p className="mx-auto mt-8 max-w-sm leading-relaxed text-crema/85 lg:mx-0">{t.nota}</p>}
 
           <a
             href={waLink(`Hola, quiero información del departamento ${t.nombre}${t.area ? ` de ${t.area} m²` : ""} en Portales de Luz.`)}
@@ -114,7 +114,7 @@ export default function Tipologias() {
         </div>
 
         <div className="flex flex-col p-4 sm:p-6">
-          <div role="group" aria-label="Vista" className="mb-4 inline-flex w-fit self-end rounded-full bg-crema-200 p-1 text-sm font-semibold">
+          <div role="group" aria-label="Vista" className="mb-4 inline-flex w-fit self-center rounded-full bg-crema-200 p-1 text-sm font-semibold sm:self-end">
             {(["ambientes", "plano"] as const).map((v) => (
               <button
                 key={v}
@@ -158,7 +158,7 @@ export default function Tipologias() {
                   </button>
                 ))}
               </div>
-              <p className="mt-3 text-xs text-tinta-soft">Imágenes referenciales de ambientación generadas digitalmente. Mobiliario y decoración no incluidos.</p>
+              <p className="mt-3 text-center text-xs text-tinta-soft sm:text-left">Imágenes referenciales de ambientación generadas digitalmente. Mobiliario y decoración no incluidos.</p>
             </div>
           ) : (
             <div className={`reveal grid flex-1 place-items-center gap-6 ${t.planos.length > 1 ? "sm:grid-cols-2" : ""}`} key={`plano-${t.id}`}>
@@ -172,7 +172,7 @@ export default function Tipologias() {
           )}
         </div>
       </div>
-      <p className="mt-4 text-xs text-tinta-soft">Planos e imágenes referenciales con mobiliario de ambientación.</p>
+      <p className="mt-4 text-center text-xs text-tinta-soft lg:text-left">Planos e imágenes referenciales con mobiliario de ambientación.</p>
     </div>
   );
 }

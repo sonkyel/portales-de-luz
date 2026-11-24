@@ -52,7 +52,7 @@ export default function Simulador() {
     <div className="grid overflow-hidden rounded-[2rem] bg-white shadow-[var(--shadow-card)] lg:grid-cols-[1.1fr_0.9fr]">
       <div className="space-y-8 p-6 sm:p-10">
         <fieldset>
-          <legend className="eyebrow text-granate">1 · Plan de pago</legend>
+          <legend className="eyebrow w-full text-center text-granate sm:text-left">1 · Plan de pago</legend>
           <div className="mt-4 grid gap-2.5 sm:grid-cols-3">
             {precios.planes.map((x) => (
               <Chip key={x.id} on={plan === x.id} onClick={() => setPlan(x.id)}>
@@ -82,7 +82,7 @@ export default function Simulador() {
         </fieldset>
 
         <fieldset>
-          <legend className="eyebrow text-granate">2 · Adicionales</legend>
+          <legend className="eyebrow w-full text-center text-granate sm:text-left">2 · Adicionales</legend>
           <div className="mt-4 grid grid-cols-2 gap-2.5">
             <Chip on={cochera} onClick={() => setCochera((v) => !v)}>
               <span className="block font-bold">Cochera</span>
@@ -96,7 +96,7 @@ export default function Simulador() {
         </fieldset>
 
         <fieldset>
-          <legend className="eyebrow text-granate">3 · Financiamiento del saldo (referencial)</legend>
+          <legend className="eyebrow w-full text-center text-granate sm:text-left">3 · Financiamiento del saldo (referencial)</legend>
           <div className="mt-4 grid gap-5 sm:grid-cols-2">
             <label className="block">
               <span className="flex justify-between text-sm text-tinta-soft">
@@ -114,7 +114,7 @@ export default function Simulador() {
         </fieldset>
       </div>
 
-      <div className="flex flex-col bg-granate-950 p-6 text-crema sm:p-10" aria-live="polite">
+      <div className="flex flex-col bg-granate-950 p-6 text-center text-crema sm:p-10 lg:text-left" aria-live="polite">
         <p className="eyebrow text-arena-300">Tu simulación</p>
         <p className="mt-3 text-sm text-crema/70">
           Flat {precios.area} m² · Torres B y C{cochera ? " + cochera" : ""}
@@ -122,12 +122,12 @@ export default function Simulador() {
         </p>
         <p className="mt-2 font-[family-name:var(--font-display)] text-5xl font-semibold sm:text-6xl">{usd(total)}</p>
         {ahorro > 0 && (
-          <p className="mt-2 inline-flex w-fit rounded-full bg-arena/20 px-3 py-1 text-xs font-semibold text-arena-300">
+          <p className="mx-auto mt-2 inline-flex w-fit rounded-full bg-arena/20 px-3 py-1 text-xs font-semibold text-arena-300 lg:mx-0">
             Ahorras {usd(ahorro)} frente al precio regular
           </p>
         )}
 
-        <dl className="mt-8 space-y-4 border-t border-crema/15 pt-6">
+        <dl className="mt-8 space-y-4 border-t border-crema/15 pt-6 text-left">
           <div className="flex justify-between gap-4">
             <dt className="text-crema/75">Cuota inicial ({pctInicial}%)</dt>
             <dd className="text-lg font-bold">{usd(inicial)}</dd>
@@ -136,18 +136,18 @@ export default function Simulador() {
             <dt className="text-crema/75">Saldo a financiar</dt>
             <dd className="text-lg font-bold">{usd(saldo)}</dd>
           </div>
-          <div className="flex justify-between gap-4 rounded-2xl bg-crema/[0.07] p-4">
+          <div className="flex flex-col items-center gap-1 rounded-2xl bg-crema/[0.07] p-5 text-center sm:flex-row sm:justify-between sm:gap-4 sm:p-4 sm:text-left">
             <dt className="text-crema/85">
               Cuota mensual estimada
               <span className="block text-xs text-crema/55">
                 {anios} años · TEA {tea.toFixed(1)}%
               </span>
             </dt>
-            <dd className="font-[family-name:var(--font-display)] text-3xl font-semibold">{usd(Math.round(cuota))}</dd>
+            <dd className="whitespace-nowrap font-[family-name:var(--font-display)] text-4xl font-semibold sm:text-3xl">{usd(Math.round(cuota))}</dd>
           </div>
         </dl>
 
-        <p className="mt-5 flex gap-2 text-xs leading-relaxed text-crema/55">
+        <p className="mt-5 flex gap-2 text-left text-xs leading-relaxed text-crema/55">
           <Info className="mt-0.5 size-4 shrink-0" />
           Simulación referencial. La tasa, el plazo y la aprobación del crédito dependen de tu banco; no incluye seguros ni gastos.
         </p>
@@ -156,7 +156,7 @@ export default function Simulador() {
           href={waLink(msg)}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto flex items-center justify-center gap-2 rounded-full bg-crema py-4 font-bold text-granate transition hover:bg-white max-lg:mt-8"
+          className="mt-auto flex items-center justify-center gap-2 rounded-full bg-crema px-4 py-4 text-sm font-bold text-granate transition hover:bg-white max-lg:mt-8 sm:text-base"
         >
           <WhatsappLogo weight="fill" className="size-5" />
           Enviar mi simulación a un asesor

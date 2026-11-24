@@ -41,8 +41,8 @@ export default function Disponibilidad() {
   return (
     <div className="grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
       <div className="rounded-[1.5rem] bg-white p-3 shadow-[var(--shadow-card)] sm:p-5">
-        <div className="flex flex-wrap items-center justify-between gap-3 px-1 pb-4">
-          <ul className="flex flex-wrap gap-x-4 gap-y-2">
+        <div className="flex flex-col items-center gap-3 px-1 pb-4 sm:flex-row sm:justify-between">
+          <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2">
             {(["libre", "separado", "vendido", "duplex"] as const).map((e) => (
               <li key={e} className="flex items-center gap-2 text-[0.8rem] text-tinta-soft">
                 <span className={`size-3.5 rounded ${estadoClase[e]}`} />
@@ -62,15 +62,17 @@ export default function Disponibilidad() {
           </label>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[28rem] border-separate border-spacing-1.5 text-center">
+        <div>
+          <table className="w-full table-fixed border-separate border-spacing-1 text-center sm:border-spacing-1.5">
             <caption className="sr-only">Disponibilidad por torre y piso. Selecciona una unidad para ver su ficha.</caption>
             <thead>
               <tr>
-                <th scope="col" className="w-16" />
+                <th scope="col" className="w-9 sm:w-16" />
                 {torresOrden.map((t) => (
-                  <th key={t} scope="col" className="pb-1 text-[0.75rem] font-bold tracking-wider text-granate">
-                    TORRE {t}
+                  <th key={t} scope="col" className="pb-1 text-[0.7rem] font-bold tracking-wider text-granate sm:text-[0.75rem]">
+                    <span className="hidden sm:inline">TORRE </span>
+                    <span className="sm:hidden">T. </span>
+                    {t}
                   </th>
                 ))}
               </tr>
@@ -78,8 +80,10 @@ export default function Disponibilidad() {
             <tbody>
               {disponibilidad.map((fila) => (
                 <tr key={fila.piso}>
-                  <th scope="row" className="pr-1 text-left text-[0.75rem] font-bold tracking-wider text-granate">
-                    PISO {fila.piso}
+                  <th scope="row" className="text-left text-[0.7rem] font-bold tracking-wider text-granate sm:pr-1 sm:text-[0.75rem]">
+                    <span className="hidden sm:inline">PISO </span>
+                    <span className="sm:hidden">P</span>
+                    {fila.piso}
                   </th>
                   {fila.celdas.map((c, i) => {
                     if (fila.piso === 5 && c.e === "duplex") return null;
@@ -96,15 +100,15 @@ export default function Disponibilidad() {
                             onClick={() => setSel({ unidad: c.u!, torre, piso: fila.piso, estado: c.e })}
                             aria-pressed={!!activo}
                             aria-label={`${c.u}, torre ${torre}, piso ${fila.piso}: ${estadoInfo[c.e as Exclude<Estado, "vacio">].label}`}
-                            className={`h-full min-h-12 w-full rounded-lg px-2 py-3 text-[0.9rem] font-semibold transition ${estadoClase[c.e]} ${
+                            className={`h-full min-h-11 w-full rounded-lg px-0.5 py-2.5 text-[0.78rem] font-semibold transition sm:min-h-12 sm:px-2 sm:py-3 sm:text-[0.9rem] ${estadoClase[c.e]} ${
                               atenuado ? "opacity-20" : "hover:-translate-y-0.5 hover:shadow-md"
                             } ${activo ? "outline-3 outline-offset-2 outline-granate" : ""}`}
                           >
                             {c.u}
-                            {c.e === "duplex" && <span className="block text-[0.68rem] font-medium opacity-70">Dúplex</span>}
+                            {c.e === "duplex" && <span className="block text-[0.6rem] font-medium opacity-70 sm:text-[0.68rem]">Dúplex</span>}
                           </button>
                         ) : (
-                          <div className={`rounded-lg px-2 py-3 text-[0.9rem] font-semibold ${estadoClase[c.e]} ${atenuado ? "opacity-20" : ""}`}>
+                          <div className={`rounded-lg px-0.5 py-2.5 text-[0.72rem] font-semibold sm:px-2 sm:py-3 sm:text-[0.9rem] ${estadoClase[c.e]} ${atenuado ? "opacity-20" : ""}`}>
                             {c.e === "cochera" ? "Cochera" : ""}
                           </div>
                         )}
@@ -119,7 +123,7 @@ export default function Disponibilidad() {
       </div>
 
       {/* Ficha de la unidad */}
-      <aside aria-live="polite" className="rounded-[1.5rem] bg-granate p-7 text-crema shadow-[var(--shadow-card)]">
+      <aside aria-live="polite" className="rounded-[1.5rem] bg-granate p-6 text-crema shadow-[var(--shadow-card)] sm:p-7">
         {!sel || !tip ? (
           <div className="flex h-full min-h-64 flex-col items-center justify-center text-center">
             <CursorClick className="size-10 text-arena-300" />
